@@ -15,6 +15,7 @@ export default class App  extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.store.getState())
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(responce => responce.json())
             .then(results => this.setState({robots: results}))

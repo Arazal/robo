@@ -3,10 +3,7 @@ import Card from '../Card/Card'
 
 
 const CardList = ({ robots }) => {
-    if(true) {
-        throw new Error('Nooo')
-    }
- 
+  
     return (
         <div className='bg-hot-pink'>
             {
