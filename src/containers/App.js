@@ -1,10 +1,25 @@
 import React, { Component} from 'react'
+import { connect } from 'react-redux'
 import CardList from '../components/CardList/CardList'
 import SearchBox from '../components/SearchBox/SearchBox'
 import Scroll from '../components/Scroll/Scroll'
 import ErrorBoundry from '../components/ErrorBoundry/ErrorBoundry'
 
-export default class App  extends Component {
+import { setSearchField } from '../actions'
+
+const mapStateToProps = state => {
+    return {
+        searchfield: state.searchRobots.searchfield
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+    }
+}
+
+class App  extends Component {
 
     constructor() {
         super()
@@ -54,3 +69,4 @@ export default class App  extends Component {
     }
 }
 
+export default connect(mapStateToProps, mapDispatchToProps)(App)
